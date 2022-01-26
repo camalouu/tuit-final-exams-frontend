@@ -1,4 +1,4 @@
-# first_project
+# Tuit Finals Frontend
 
 ## Project setup
 ```
