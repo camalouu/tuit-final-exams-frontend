@@ -1,22 +1,19 @@
 <template>
-  <div id="app">
-    <h1>Tuit Finals</h1>
-    <router-link to="/addQuestions"> add </router-link>
-    <router-view></router-view>
+  <div id="app" class="w-50 m-auto text-center">
+    <router-view :subjects="subjects"></router-view>
   </div>
 </template>
 <script>
+import api from "./services";
 export default {
   name: "App",
+  data() {
+    return {
+      subjects: [],
+    };
+  },
+  async mounted() {
+    this.subjects = await api.getSubjecNames();
+  },
 };
 </script>
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

@@ -1,25 +1,18 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-Vue.use(VueRouter)
-
-import AddQuestions from './components/AddQuestions.vue'
-import QuestionForm from './components/QuestionForm.vue'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import routes from './routes'
 import App from './App.vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+Vue.use(VueRouter)
+Vue.use(BootstrapVue)
+Vue.use(IconsPlugin)
 
 const router = new VueRouter({
-  routes: [
-    {
-      path: '/addQuestions',
-      component: AddQuestions
-    },
-    {
-      path: '/addQuestions/:subject',
-      component: QuestionForm
-    }
-  ]
+  routes: routes
 })
-
-Vue.config.productionTip = false
 
 new Vue({
   router,
