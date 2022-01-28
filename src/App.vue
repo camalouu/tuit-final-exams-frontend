@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="w-50 m-auto text-center">
+  <div id="app" class="w-75 m-auto text-center">
     <router-view :subjects="subjects"></router-view>
   </div>
 </template>
@@ -7,11 +7,7 @@
 import api from "./services";
 export default {
   name: "App",
-  data() {
-    return {
-      subjects: [],
-    };
-  },
+  data: () => ({ subjects: [] }),
   async mounted() {
     this.subjects = await api.getSubjecNames();
   },
